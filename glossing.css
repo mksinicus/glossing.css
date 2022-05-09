@@ -1,0 +1,57 @@
+.glossing {
+  white-space: nowrap;
+}
+.glossing u,
+.glossing em {
+  text-decoration: none;
+  font-size: normal;
+  font-variant: small-caps;
+}
+.glossing :is(table, th, tr, td, caption, thead, tbody) {
+  margin: 0;
+  border: 0;
+  background-color: transparent !important;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+}
+.glossing :is(td, caption) {
+  padding: .1em .4em;
+}
+.glossing caption {
+  caption-side: bottom;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* optional behaviors */
+.glossing tr:nth-child(1) {
+  font-style: italic;
+}
+.glossing.noital tr:nth-child(1), 
+.glossing.ital2 tr:nth-child(1) {
+  font-style: normal;
+}
+.glossing.ital2 tr:nth-child(2) {
+  font-style: italic;
+}
+
+.glossing.quot1 caption::before {
+  content: "‘"
+}
+.glossing.quot1 caption::after {
+  content: "’"
+}
+.glossing.quot2 caption::before {
+  content: "“"
+}
+.glossing.quot2 caption::after {
+  content: "”"
+}
+
+.glossing.fontsize :is(tr:nth-child(1), caption) {
+  font-size: 1.1em;
+}
+.glossing.fontsize.ital2 :is(tr:nth-child(2), caption) {
+  font-size: 1.1em
+}
