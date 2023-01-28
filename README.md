@@ -27,7 +27,7 @@ sass glossing.scss | cleancss -O2 > glossing.min.css
 
 ## Usage
 
-Simply include it in your HTML document with `<link rel="stylesheet" href="glossing.min.css">`.
+Simply include it in your HTML document with `<link rel="stylesheet" href="path/to/glossing.min.css">`.
 
 - `.glossing > .original` is where you place the original sentence for
   glossing. Paragraph margins and paddings will fit with the glossing part.
@@ -82,7 +82,7 @@ See the following screenshot of output (with STIX Two Text font).
 And another example (contents are from [Leipzig.js](https://bdchauvette.net/leipzig.js/)),
 I didn't place the source code here:
 
-![A long example from Wittgenstein's book](assets/witt.webp)
+![A long example from Wittgenstein's Tractatus](assets/witt.webp)
 
 `<strong>`s are overridden to be rendered as normal-weight small capitals. Or
 you can use `span.abbr` if you prefer to --- and change the source code
