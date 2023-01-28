@@ -1,0 +1,77 @@
+%font-normalize {
+  font-style: normal;
+  font-weight: normal;
+  font-variant: none;
+  font-size: 1em;
+}
+
+$padding: .1em .4em;
+
+@mixin quotes($lquot, $rquot) {
+  &::before {
+    content: $lquot;
+  }
+  &::after {
+    content: $rquot;
+  }
+}
+
+.glossing {
+  // Table cells doesn't break internally.
+  white-space: nowrap;
+
+  // Original text, usually right before the table for glossing.
+  // Not every `p`, because people may want to wrap the whole document inside.
+  .original p {
+    margin: 0;
+    padding: $padding;
+    text-indent: 0;
+  }
+
+  // Use `strong`, or alternatively `.abbr`. Semantically sensible to me.
+  strong, .abbr {
+    @extend %font-normalize;
+    text-decoration: none;
+    background: none;
+    font-variant: small-caps;
+  }
+
+  table, th, tr, td, caption, thead, tbody {
+    @extend %font-normalize;
+    margin: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+  }
+
+   // Text in the first row are expected to have been split by morpheme
+  tr:nth-child(1) {
+    font-style: italic;
+  }
+  &.no-italic tr:nth-child(1) {
+    font-style: normal;
+  }
+
+  // The line with glossings are usually smaller
+  tr:nth-child(2) {
+    font-size: .9em;
+  }
+
+  td, caption {
+    padding: $padding;
+  }
+  
+  // Allow caption to span beyond max width of table contents.
+  // But you will need to break lines manually if needed.
+  caption {
+    caption-side: bottom;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  &.s-quotes caption {
+    @include quotes("‘", "’");
+  }
+  &.d-quotes caption {
+    @include quotes("“", "”");
+  }
+}
