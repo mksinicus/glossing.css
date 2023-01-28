@@ -17,9 +17,6 @@ $padding: .1em .4em;
 }
 
 .glossing {
-  // Table cells doesn't break internally.
-  white-space: nowrap;
-
   // Original text, usually right before the table for glossing.
   // Not every `p`, because people may want to wrap the whole document inside.
   .original p {
@@ -38,6 +35,8 @@ $padding: .1em .4em;
 
   table, th, tr, td, caption, thead, tbody {
     @extend %font-normalize;
+    // Table cells don't break internally.
+    white-space: nowrap;
     margin: 0;
     border: 0;
     background: none;
