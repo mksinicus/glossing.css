@@ -2,9 +2,9 @@
 
 A minimalist CSS library for linguistic glossing.
 
-This stylesheet integrates best with [pandoc Markdown](https://pandoc.org/
-MANUAL.html) with extension `table_captions` enabled. Yes, we use `<table>` to
-represent glossings in HTML, because glossings are literally data.
+This stylesheet integrates best with [pandoc Markdown](https://pandoc.org/MANUAL.html)
+with extension `table_captions` enabled. Yes, we use `<table>` to represent
+glossings in HTML, because glossings are literally data.
 
 With pandoc extension `table_captions`, we take contents generated into
 `<caption>` as the line for translation in linguistic glossing, which is
@@ -85,8 +85,8 @@ I didn't place the source code here:
 ![A long example from Wittgenstein's book](assets/witt.webp)
 
 `<strong>`s are overridden to be rendered as normal-weight small capitals. Or
-you can use `span.abbr` if you prefer to --- and change the source code whenever
-you please, since this project is **UNLICENSED**.
+you can use `span.abbr` if you prefer to --- and change the source code
+whenever you please, since this project is **UNLICENSED**.
 
 ## To-dos
 
