@@ -41,10 +41,11 @@ $padding: .1em .4em;
     border: 0;
     background: none;
     text-align: left;
+    line-height: 1.4em;
   }
 
    // Text in the first row are expected to have been split by morpheme
-  tr:nth-child(1) {
+  tr:nth-child(1) td {
     font-style: italic;
   }
   &.no-italic tr:nth-child(1) {
