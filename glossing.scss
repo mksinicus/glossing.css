@@ -1,4 +1,5 @@
 %font-normalize {
+  color: inherit;
   font-style: normal;
   font-weight: normal;
   font-variant: none;
@@ -11,12 +12,18 @@ $padding: .1em .4em;
   &::before {
     content: $lquot;
   }
+
   &::after {
     content: $rquot;
   }
 }
 
 .glossing {
+  margin {
+    top: 0;
+    bottom: 1rem;
+  }
+
   // Original text, usually right before the table for glossing.
   // Not every `p`, because people may want to wrap the whole document inside.
   .original p {
@@ -26,14 +33,25 @@ $padding: .1em .4em;
   }
 
   // Use `strong`, or alternatively `.abbr`. Semantically sensible to me.
-  strong, .abbr {
+  strong,
+  .abbr {
     @extend %font-normalize;
     text-decoration: none;
     background: none;
     font-variant: small-caps;
   }
 
-  table, th, tr, td, caption, thead, tbody {
+  table {
+    width: auto;
+  }
+
+  table,
+  th,
+  tr,
+  td,
+  caption,
+  thead,
+  tbody {
     @extend %font-normalize;
     // Table cells don't break internally.
     white-space: nowrap;
@@ -41,35 +59,52 @@ $padding: .1em .4em;
     border: 0;
     background: none;
     text-align: left;
-    line-height: 1.4em;
+    line-height: 1.5em;
   }
 
-   // Text in the first row are expected to have been split by morpheme
-  tr:nth-child(1) td {
-    font-style: italic;
-  }
-  &.no-italic tr:nth-child(1) {
+  // Text in the first row are expected to have been split by morpheme
+  // tr:nth-child(1) td {
+  //   font-style: italic;
+  // }
+  &.no-italic tr:nth-child(1) td {
     font-style: normal;
   }
 
   // The line with glossings are usually smaller
-  tr:nth-child(2) {
-    font-size: .9em;
+  &:not(.normal) {
+    tr:nth-child(2) {
+      font-size: .9em;
+    }
+
+    tr:nth-child(1) td {
+      font-style: italic;
+    }
   }
 
-  td, caption {
+  td,
+  caption {
     padding: $padding;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
-  
+
   // Allow caption to span beyond max width of table contents.
   // But you will need to break lines manually if needed.
   caption {
     caption-side: bottom;
     overflow: visible;
   }
+
   &.s-quotes caption {
     @include quotes("‘", "’");
   }
+
   &.d-quotes caption {
     @include quotes("“", "”");
   }

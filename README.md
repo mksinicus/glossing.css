@@ -27,8 +27,7 @@ sass glossing.scss | cleancss -O2 > glossing.min.css
 
 ## Usage
 
-Simply [download](https://github.com/mksinicus/glossing.css/releases/latest)
-and include it in your HTML document with `<link rel="stylesheet" href="path/to/glossing.min.css">`.
+Simply include the [minimized CSS file](./glossing.min.css) in your HTML document with `<link rel="stylesheet" href="path/to/glossing.min.css">`.
 
 - `.glossing > .original` is where you place the original sentence for
   glossing. Paragraph margins and paddings will fit with the glossing part.
